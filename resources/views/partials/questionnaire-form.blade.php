@@ -16,7 +16,7 @@
         ];
     @endphp
     <div class="field">
-        <label>What do you need a quote for? <span class="req">*</span></label>
+        <label>What do you need a quote for?</label>
         <div class="quote-chips">
             @foreach ($quoteChips as $c)
                 <label class="qchip {{ $c['wide'] ? 'qchip--wide' : '' }}">
@@ -29,8 +29,8 @@
 
     <div class="form-grid-2">
         <div class="field">
-            <label>Full Name <span class="req">*</span></label>
-            <input type="text" name="full_name" value="{{ old('full_name') }}" placeholder="First and last name" required>
+            <label>Full Name</label>
+            <input type="text" name="full_name" value="{{ old('full_name') }}" placeholder="First and last name">
             @error('full_name')<span class="err">{{ $message }}</span>@enderror
         </div>
         <div class="field">
@@ -41,20 +41,22 @@
 
     <div class="form-grid-2">
         <div class="field">
-            <label>Email <span class="req">*</span></label>
-            <input type="email" name="email" value="{{ old('email') }}" placeholder="you@email.com" required>
+            <label>Email</label>
+            <input type="email" name="email" value="{{ old('email') }}" placeholder="you@email.com">
             @error('email')<span class="err">{{ $message }}</span>@enderror
         </div>
         <div class="field">
-            <label>Phone <span class="req">*</span></label>
-            <input type="tel" name="phone" value="{{ old('phone') }}" placeholder="(248) 000-0000" required>
+            <label>Phone</label>
+            <input type="tel" name="phone" value="{{ old('phone') }}" placeholder="(248) 000-0000">
             @error('phone')<span class="err">{{ $message }}</span>@enderror
         </div>
     </div>
 
+    <p class="form-hint"><x-icon name="phone" style="width:.95em;height:.95em;display:inline" /> Just add a <strong>phone or email</strong> so Patrick can reach you — everything else is optional, so feel free to submit even if you can't fill it all out.</p>
+
     <div class="field">
-        <label>Full Address <span class="req">*</span></label>
-        <input type="text" name="address" value="{{ old('address') }}" placeholder="Street, City, State, ZIP" required>
+        <label>Full Address</label>
+        <input type="text" name="address" value="{{ old('address') }}" placeholder="Street, City, State, ZIP">
         @error('address')<span class="err">{{ $message }}</span>@enderror
     </div>
 

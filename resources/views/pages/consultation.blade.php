@@ -24,21 +24,22 @@
                 <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
                 <div class="form-grid-2">
                     <div class="field">
-                        <label for="name">Full Name <span class="req">*</span></label>
-                        <input type="text" id="name" name="name" value="{{ old('name') }}" required>
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" value="{{ old('name') }}">
                         @error('name')<span class="err">{{ $message }}</span>@enderror
                     </div>
                     <div class="field">
-                        <label for="phone">Phone <span class="req">*</span></label>
-                        <input type="tel" id="phone" name="phone" value="{{ old('phone') }}" placeholder="(248) 000-0000" required>
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" value="{{ old('phone') }}" placeholder="(248) 000-0000">
                         @error('phone')<span class="err">{{ $message }}</span>@enderror
                     </div>
                 </div>
                 <div class="field">
-                    <label for="email">Email <span class="req">*</span></label>
-                    <input type="email" id="email" name="email" value="{{ old('email') }}" required>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" value="{{ old('email') }}">
                     @error('email')<span class="err">{{ $message }}</span>@enderror
                 </div>
+                <p class="form-hint"><x-icon name="phone" style="width:.95em;height:.95em;display:inline" /> Just add a <strong>phone or email</strong> so Patrick can reach you — everything else is optional.</p>
                 <div class="form-grid-2">
                     <div class="field">
                         <label for="date">Preferred Date</label>

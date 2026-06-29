@@ -18,13 +18,13 @@ class QuestionnaireController extends Controller
 
     public function store(Request $request)
     {
+        // Accept partial submissions — the only requirement is a way to reach
+        // them (a phone OR an email). Everything else is optional.
         $validated = $request->validate([
-            // Required contact basics
-            'full_name'         => 'required|string|max:160',
-            'email'             => 'required|email|max:160',
-            'phone'             => 'required|string|max:40',
-            'address'           => 'required|string|max:255',
-            // Optional details
+            'full_name'         => 'nullable|string|max:160',
+            'email'             => 'nullable|required_without:phone|email|max:160',
+            'phone'             => 'nullable|required_without:email|string|max:40',
+            'address'           => 'nullable|string|max:255',
             'dob'               => 'nullable|string|max:40',
             'home_status'       => 'nullable|string|max:40',
             'insurance_types'   => 'nullable|array',
@@ -35,6 +35,9 @@ class QuestionnaireController extends Controller
             'current_carrier'   => 'nullable|string|max:120',
             'best_time'         => 'nullable|string|max:60',
             'website'           => 'nullable|max:0', // honeypot
+        ], [
+            'email.required_without' => 'Please add a phone number or an email so Patrick can reach you.',
+            'phone.required_without' => 'Please add a phone number or an email so Patrick can reach you.',
         ]);
 
         // Human-readable payload for the agent (skip empties)
@@ -62,9 +65,9 @@ class QuestionnaireController extends Controller
 
         $lead = $this->leads->store([
             'type'      => 'questionnaire',
-            'name'      => $validated['full_name'],
-            'email'     => $validated['email'],
-            'phone'     => $validated['phone'],
+            'name'      => ($validated['full_name'] ?? '') ?: 'Website Lead',
+            'email'     => $validated['email'] ?? null,
+            'phone'     => $validated['phone'] ?? null,
             'interests' => $validated['insurance_types'] ?? [],
             'data'      => $payload,
         ], $request);

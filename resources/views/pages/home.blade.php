@@ -3,10 +3,10 @@
 
 @section('content')
 
-{{-- HERO --}}
+{{-- HERO with the quote form built right in --}}
 <section class="hero">
     <div class="container">
-        <div class="hero__grid">
+        <div class="hero__grid hero__grid--form">
             <div class="hero__copy">
                 <div class="hero__badges">
                     <span class="chip"><x-icon name="pin" /> Insuring All of Michigan</span>
@@ -21,10 +21,15 @@
                     <li><x-icon name="check" /> Business</li>
                 </ul>
                 <p class="hero__lead">Insuring <strong style="color:#fff">all of Michigan</strong> — better coverage, better savings, from {{ $site['agent'] }}.</p>
-                <div class="hero__cta btn-row">
-                    <a href="#quiz" class="btn btn--primary btn--lg">Get My Free Quote <x-icon name="arrow-right" /></a>
-                    <a href="tel:{{ $site['phone_raw'] }}" class="btn btn--white btn--lg"><x-icon name="phone" /> {{ $site['phone'] }}</a>
+
+                <div class="hero__cta">
+                    <div class="cta-wrap">
+                        <span class="click-here">Start Here <x-icon name="arrow-right" /></span>
+                        <a href="#quiz" class="btn btn--primary btn--huge btn--pulse">GET MY FREE QUOTE <x-icon name="arrow-right" /></a>
+                    </div>
+                    <a href="tel:{{ $site['phone_raw'] }}" class="btn btn--white btn--lg" style="margin-top:1rem"><x-icon name="phone" /> {{ $site['phone'] }}</a>
                 </div>
+
                 <div class="hero__trust">
                     <div class="stat"><b>20+</b><span>Years Experience</span></div>
                     <div class="hero__divider"></div>
@@ -34,19 +39,22 @@
                 </div>
             </div>
 
-            <div class="hero__media">
-                <div class="hero__portrait">
-                    <img src="{{ asset('images/agent-large.jpg') }}" alt="{{ $site['agent'] }}, {{ $site['company'] }} agent in {{ $site['city'] }}, Michigan" width="540" height="567" fetchpriority="high">
-                    <div class="hero__namecard">
+            <div class="hero__media hero__media--form">
+                <div class="form-card hero-form" id="quiz">
+                    <span class="hero-form__badge">👉 START HERE — IT'S FREE</span>
+                    <div class="hero-form__head">
+                        <img src="{{ asset('images/agent-square.jpg') }}" alt="{{ $site['agent'] }}, {{ $site['company'] }} agent" class="hero-form__avatar" width="52" height="52">
                         <div>
-                            <div class="nm">{{ $site['agent'] }}</div>
-                            <div class="rl">Insurance Agent</div>
-                        </div>
-                        <div style="text-align:right">
-                            <div class="lic">{{ $site['license'] }}</div>
-                            <a href="tel:{{ $site['phone_raw'] }}" class="rl" style="font-size:.95rem">{{ $site['phone'] }}</a>
+                            <div class="hero-form__agent">{{ $site['agent'] }}</div>
+                            <div class="hero-form__role">Farmers Insurance Agent · Michigan</div>
                         </div>
                     </div>
+                    <h2 class="hero-form__title">PLEASE FILL OUT YOUR INFO</h2>
+                    <p class="hero-form__sub">I'll personally prepare your free, no-obligation quote — it only takes about 2 minutes.</p>
+                    @if ($errors->any())
+                        <div style="margin-bottom:1.1rem">@include('partials.alerts')</div>
+                    @endif
+                    @include('partials.questionnaire-form')
                 </div>
             </div>
         </div>
@@ -62,23 +70,6 @@
             <p class="lead">From your first car to your family's future and your growing business — get the right protection at the right price.</p>
         </div>
         @include('partials.sections.services')
-    </div>
-</section>
-
-{{-- QUESTIONNAIRE --}}
-<section class="section bg-navy" id="quiz">
-    <div class="container">
-        <div class="section-head center reveal">
-            <span class="eyebrow"><x-icon name="clipboard" /> Free Personalized Quote</span>
-            <h2>Let's build your custom coverage</h2>
-            <p class="lead">Answer a few quick questions and I'll prepare insurance options tailored to you — takes about 2 minutes, no obligation.</p>
-        </div>
-        <div class="form-card reveal" style="max-width:840px;margin-inline:auto">
-            @if ($errors->any())
-                <div class="quiz" style="margin-bottom:1.4rem">@include('partials.alerts')</div>
-            @endif
-            @include('partials.questionnaire-form')
-        </div>
     </div>
 </section>
 

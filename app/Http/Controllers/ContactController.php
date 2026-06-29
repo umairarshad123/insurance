@@ -18,21 +18,25 @@ class ContactController extends Controller
 
     public function store(Request $request)
     {
+        // Partial submissions welcome — only require a phone OR an email.
         $data = $request->validate([
-            'name'    => 'required|string|max:120',
-            'email'   => 'required|email|max:160',
-            'phone'   => 'nullable|string|max:40',
+            'name'    => 'nullable|string|max:120',
+            'email'   => 'nullable|required_without:phone|email|max:160',
+            'phone'   => 'nullable|required_without:email|string|max:40',
             'subject' => 'nullable|string|max:160',
-            'message' => 'required|string|max:2000',
+            'message' => 'nullable|string|max:2000',
             'website' => 'nullable|max:0', // honeypot
+        ], [
+            'email.required_without' => 'Please add a phone number or an email so Patrick can reach you.',
+            'phone.required_without' => 'Please add a phone number or an email so Patrick can reach you.',
         ]);
 
         $lead = $this->leads->store([
             'type'    => 'contact',
-            'name'    => $data['name'],
-            'email'   => $data['email'],
+            'name'    => ($data['name'] ?? '') ?: 'Website Lead',
+            'email'   => $data['email'] ?? null,
             'phone'   => $data['phone'] ?? null,
-            'message' => $data['message'],
+            'message' => $data['message'] ?? null,
             'data'    => ['Subject' => $data['subject'] ?? null],
         ], $request);
 

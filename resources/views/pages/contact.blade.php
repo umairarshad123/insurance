@@ -54,8 +54,8 @@
                         <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
                         <div class="form-grid-2">
                             <div class="field">
-                                <label for="name">Full Name <span class="req">*</span></label>
-                                <input type="text" id="name" name="name" value="{{ old('name') }}" placeholder="John Smith" required>
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" value="{{ old('name') }}" placeholder="John Smith">
                                 @error('name')<span class="err">{{ $message }}</span>@enderror
                             </div>
                             <div class="field">
@@ -64,8 +64,8 @@
                             </div>
                         </div>
                         <div class="field">
-                            <label for="email">Email <span class="req">*</span></label>
-                            <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="you@email.com" required>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="you@email.com">
                             @error('email')<span class="err">{{ $message }}</span>@enderror
                         </div>
                         <div class="field">
@@ -73,9 +73,10 @@
                             <input type="text" id="subject" name="subject" value="{{ old('subject') }}" placeholder="What can I help with?">
                         </div>
                         <div class="field">
-                            <label for="message">Message <span class="req">*</span></label>
-                            <textarea id="message" name="message" placeholder="Tell me a little about what you're looking for…" required>{{ old('message') }}</textarea>
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell me a little about what you're looking for…">{{ old('message') }}</textarea>
                             @error('message')<span class="err">{{ $message }}</span>@enderror
+                            <p class="form-hint" style="margin-top:.7rem"><x-icon name="phone" style="width:.95em;height:.95em;display:inline" /> Just add a <strong>phone or email</strong> so Patrick can reach you — everything else is optional.</p>
                         </div>
                         <button type="submit" class="btn btn--primary btn--block btn--lg">Send Message <x-icon name="arrow-right" /></button>
                         <p style="text-align:center;font-size:.8rem;color:var(--slate-500);margin-top:.9rem"><x-icon name="lock" style="width:.9em;height:.9em;display:inline" /> Your information is kept private and never shared.</p>
