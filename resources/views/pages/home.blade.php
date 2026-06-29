@@ -53,18 +53,6 @@
     </div>
 </section>
 
-{{-- SERVICES (right after hero) --}}
-<section class="section">
-    <div class="container">
-        <div class="section-head center reveal">
-            <span class="eyebrow"><x-icon name="shield" /> What I Cover</span>
-            <h2>Insurance built around your life</h2>
-            <p class="lead">From your first car to your family's future and your growing business — get the right protection at the right price.</p>
-        </div>
-        @include('partials.sections.services')
-    </div>
-</section>
-
 {{-- QUESTIONNAIRE --}}
 <section class="section bg-navy" id="quiz">
     <div class="container">

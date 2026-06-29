@@ -39,6 +39,17 @@
 <section class="section bg-slate">
     <div class="container">
         <div class="section-head center reveal">
+            <span class="eyebrow"><x-icon name="shield" /> What I Cover</span>
+            <h2>Insurance built around your life</h2>
+            <p class="lead">From your first car to your family's future and your growing business — get the right protection at the right price.</p>
+        </div>
+        @include('partials.sections.services')
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-head center reveal">
             <span class="eyebrow"><x-icon name="heart" /> What I Stand For</span>
             <h2>Values that guide every policy</h2>
         </div>
@@ -50,7 +61,7 @@
     </div>
 </section>
 
-<section class="section">
+<section class="section bg-slate">
     <div class="container">
         <div class="section-head center reveal">
             <span class="eyebrow"><x-icon name="pin" /> Coverage Areas</span>
