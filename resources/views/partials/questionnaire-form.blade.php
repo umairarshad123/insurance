@@ -3,6 +3,8 @@
     @csrf
     <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
 
+    <div class="form-flag">👇 PLEASE COMPLETE TO GET A QUOTE 👇</div>
+
     {{-- What kind of quote --}}
     @php
         $quoteChips = [

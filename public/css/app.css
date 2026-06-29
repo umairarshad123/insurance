@@ -796,3 +796,17 @@ strong { color: var(--slate-900); font-weight: 700; }
 @media (prefers-reduced-motion: reduce){
   .qpop__card, .qpop__badge, .qpop__cta{ animation: none; }
 }
+
+/* Big yellow "please complete to get a quote" banner on the form */
+.form-flag{
+  display:flex; align-items:center; justify-content:center; gap:.5rem; text-align:center;
+  background:#FFD400; color:#7a1212; font-family:var(--font-display); font-weight:900;
+  font-size:clamp(1rem,2.2vw,1.22rem); letter-spacing:.02em; text-transform:uppercase;
+  padding:.9rem 1rem; border-radius:12px; margin-bottom:1.5rem; border:2px dashed #BB0A1E;
+  box-shadow:0 3px 0 #c9a900; animation: flagpulse 1.3s ease-in-out infinite;
+}
+@keyframes flagpulse{
+  0%,100%{ transform:scale(1); box-shadow:0 3px 0 #c9a900; }
+  50%{ transform:scale(1.025); box-shadow:0 6px 16px rgba(187,10,30,.28); }
+}
+@media (prefers-reduced-motion: reduce){ .form-flag{ animation:none; } }
