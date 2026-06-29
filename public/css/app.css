@@ -735,8 +735,8 @@ strong { color: var(--slate-900); font-weight: 700; }
 .quote-form .field > label{ display:flex; align-items:center; gap:.5rem; }
 .quote-form .field > label::before{
   content: counter(qnum); flex:none;
-  display:inline-grid; place-items:center; width:1.5em; height:1.5em; border-radius:50%;
-  background:#FFD400; color:#7a1212; font-weight:900; font-size:.85em; line-height:1;
+  display:inline-grid; place-items:center; width:30px; height:30px; border-radius:50%;
+  background:#FFD400; color:#7a1212; font-weight:900; font-size:1.05rem; line-height:1;
   box-shadow:0 2px 0 #c9a900;
 }
 
