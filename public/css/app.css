@@ -114,7 +114,7 @@ strong { color: var(--slate-900); font-weight: 700; }
 .section--tight { padding-block: clamp(44px,6vw,72px); }
 .bg-cream { background: var(--cream); }
 .bg-slate { background: var(--slate-50); }
-.bg-navy { background: var(--grad-navy-deep); color: #dfe6f6; }
+.bg-navy { background: var(--navy); color: #dfe6f6; }
 .bg-navy h2,.bg-navy h3 { color: #fff; }
 .bg-navy p { color: #b9c6e6; }
 .grid { display: grid; gap: clamp(20px, 3vw, 34px); }
@@ -260,7 +260,7 @@ strong { color: var(--slate-900); font-weight: 700; }
 }
 
 /* ---------- 7. Hero ---------- */
-.hero { position:relative; background: var(--grad-navy-deep); color:#fff; overflow:hidden; isolation:isolate; }
+.hero { position:relative; background: var(--navy); color:#fff; overflow:hidden; isolation:isolate; }
 .hero::before{ /* glow */
   content:""; position:absolute; width:60vw; height:60vw; right:-12vw; top:-18vw; z-index:-1;
   background: radial-gradient(circle, rgba(2,79,157,.55), transparent 62%); filter:blur(10px);
