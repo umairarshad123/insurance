@@ -742,7 +742,7 @@ strong { color: var(--slate-900); font-weight: 700; }
 /* Numbered yellow badges on each quote-form field so people know the order */
 .quote-form{ counter-reset: qnum; }
 .quote-form .field{ counter-increment: qnum; }
-.quote-form .field > label{ display:flex; align-items:center; gap:.5rem; }
+.quote-form .field > label{ display:flex; align-items:center; gap:.5rem; color:var(--red) !important; font-weight:800; font-size:.85rem; letter-spacing:.03em; }
 .quote-form .field > label::before{
   content: counter(qnum); flex:none;
   display:inline-grid; place-items:center; width:30px; height:30px; border-radius:50%;
