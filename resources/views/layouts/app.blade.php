@@ -45,8 +45,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-    {{-- Styles --}}
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    {{-- Styles (cache-busted by file modified time so deploys show instantly) --}}
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}?v={{ @filemtime(public_path('css/app.css')) ?: '1' }}">
 
     {{-- Local Business JSON-LD --}}
     <script type="application/ld+json">
@@ -92,7 +92,7 @@
     @include('partials.conversion')
     @include('partials.quote-popup')
 
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}?v={{ @filemtime(public_path('js/app.js')) ?: '1' }}" defer></script>
     @stack('scripts')
 </body>
 </html>

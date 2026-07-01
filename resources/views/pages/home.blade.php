@@ -52,11 +52,11 @@
 </section>
 
 {{-- QUESTIONNAIRE --}}
-<section class="section bg-navy" id="quiz" style="padding-top:1.25rem">
+<section class="section bg-navy" id="quiz" style="padding-top:.25rem">
     <div class="container">
-        <div class="section-head center reveal" style="margin-bottom:1.4rem">
+        <div class="section-head center reveal" style="margin-bottom:1.2rem">
             <span class="eyebrow"><x-icon name="clipboard" /> Free Personalized Quote</span>
-            <h2>Get Quoted Now</h2>
+            <h2 style="font-size:clamp(2.5rem,5.5vw,3.7rem)">Get Quoted Now</h2>
             <p class="lead">Answer a few quick questions and I'll prepare insurance options tailored to you — takes about 2 minutes, no obligation.</p>
         </div>
         <div class="form-card reveal" style="max-width:840px;margin-inline:auto">

@@ -269,7 +269,7 @@ strong { color: var(--slate-900); font-weight: 700; }
   content:""; position:absolute; left:-10vw; bottom:-16vw; width:46vw; height:46vw; z-index:-1;
   background: radial-gradient(circle, rgba(187,10,30,.30), transparent 65%);
 }
-.hero__grid { display:grid; grid-template-columns: 1.08fr .92fr; gap:clamp(30px,5vw,64px); align-items:center; padding-block: clamp(28px,3.5vw,52px) clamp(20px,3vw,40px); }
+.hero__grid { display:grid; grid-template-columns: 1.08fr .92fr; gap:clamp(30px,5vw,64px); align-items:center; padding-block: clamp(24px,3vw,44px) clamp(8px,1.4vw,16px); }
 .hero__badges { display:flex; gap:.6rem; flex-wrap:wrap; margin-bottom:1.4rem; }
 .chip { display:inline-flex; align-items:center; gap:.45rem; font-size:.82rem; font-weight:600; font-family:var(--font-display);
   background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.16); color:#eaf1ff; padding:.45rem .85rem; border-radius:var(--r-pill); backdrop-filter:blur(6px); }
@@ -432,9 +432,13 @@ strong { color: var(--slate-900); font-weight: 700; }
 .qchip input{ position:absolute; opacity:0; width:0; height:0; }
 .qchip span{
   display:flex; align-items:center; justify-content:center; gap:.5rem; text-align:center;
-  padding:.55rem .8rem; min-height:40px; border:1.5px solid var(--slate-200); border-radius:var(--r-pill);
-  font-family:var(--font-display); font-weight:800; font-size:.9rem; color:var(--red); letter-spacing:.01em;
+  padding:.55rem .8rem; min-height:42px; border:1.5px solid var(--slate-200); border-radius:var(--r-pill);
+  font-family:var(--font-display); font-weight:800; font-size:.94rem; letter-spacing:.02em;
   background:#fff; cursor:pointer; transition:all var(--t) var(--ease);
+}
+/* Force the option words to bold red so they stand out */
+.quote-form .qchip span{ color:var(--red) !important; font-weight:800; }
+.quote-form .qchip input:checked + span{ color:var(--red) !important;
 }
 .qchip span::before{ content:""; width:14px; height:14px; border-radius:50%; border:2px solid var(--slate-300); flex:none; transition:all var(--t); }
 .qchip span:hover{ border-color:var(--blue-400); }
